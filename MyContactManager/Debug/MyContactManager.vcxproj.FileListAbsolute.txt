@@ -1,0 +1,2 @@
+C:\Users\직업능력개발훈련 401호 23번\source\repos\MyContactManager\Debug\MyContactManager.exe
+C:\Users\직업능력개발훈련 401호 23번\source\repos\MyContactManager\Debug\MyContactManager.pdb

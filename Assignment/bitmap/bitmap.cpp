@@ -7,26 +7,26 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	if(argc < 2)
+	if (argc < 2)
 		return -1;
-	
+
 	ifstream in;
-	ofstream out;
+	ofstream out("bitmap.txt");
 	long long num = 0;
 	long long bmap[64] = { 0, };
 	long long tmap[64] = { 0, };
-	
-	in.open(argv[1])
-	if (!in.is_open()) {
-		cout << "File Not Found" << endl;
-		return -1;
-	}
-	
+
+	in.open(argv[1]);
+		if (!in.is_open()) {
+			cout << "File Not Found" << endl;
+			return -1;
+		}
+
 	for (int i = 0; i < 64; ++i) {
 		in >> num;
 		bmap[i] = num;
 	}
-	
+
 	for (int i = 0; i < 64; ++i) {
 		for (int j = 63; j >= 0; --j) {
 			tmap[63 - j] |= ((bmap[i] >> j) & 1) << (63 - i);

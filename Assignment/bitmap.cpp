@@ -31,7 +31,7 @@ int main()
 	}
 
 	for (int i = 0; i < 64; ++i)
-		cout << tmap[i] << endl;
+		out << tmap[i] << endl;
 
 	in.close();
 	out.close();

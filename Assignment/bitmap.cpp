@@ -5,22 +5,25 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-	ifstream in;
-	ofstream out;
+	ifstream fin;
+	ofstream fout("bitmap.txt");
 	long long num = 0;
 	long long bmap[64] = { 0, };
 	long long tmap[64] = { 0, };
 	
-	in.open("3.inp");
-	if (!in.is_open()) {
+	if (argc < 2)
+		return -1;
+
+	fin.open(argv[1]);
+	if (!fin.is_open()) {
 		cout << "File Not Found" << endl;
 		return -1;
 	}
 	
 	for (int i = 0; i < 64; ++i) {
-		in >> num;
+		fin >> num;
 		bmap[i] = num;
 	}
 	
@@ -30,10 +33,12 @@ int main()
 		}
 	}
 
-	for (int i = 0; i < 64; ++i)
-		out << tmap[i] << endl;
+	for (int i = 0; i < 64; ++i) {
+		cout << tmap[i] << endl;
+		fout << tmap[i] << endl;
+	}
 
-	in.close();
-	out.close();
+	fin.close();
+	fout.close();
 	return 0;
 }

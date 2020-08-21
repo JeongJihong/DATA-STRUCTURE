@@ -5,15 +5,18 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
+	if(argc < 2)
+		return -1;
+	
 	ifstream in;
 	ofstream out;
 	long long num = 0;
 	long long bmap[64] = { 0, };
 	long long tmap[64] = { 0, };
 	
-	in.open("3.inp");
+	in.open(argv[1])
 	if (!in.is_open()) {
 		cout << "File Not Found" << endl;
 		return -1;
@@ -31,7 +34,7 @@ int main()
 	}
 
 	for (int i = 0; i < 64; ++i)
-		cout << tmap[i] << endl;
+		out << tmap[i] << endl;
 
 	in.close();
 	out.close();

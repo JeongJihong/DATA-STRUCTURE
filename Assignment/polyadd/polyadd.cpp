@@ -19,6 +19,15 @@ int main(int argc, char* argv[])
     ifstream in;
     ofstream out("polyadd.txt");
     
+    if (argc < 2)
+        return -1;
+    
+    in.open(argv[1]);
+    if (!in.is_open()) {
+        cout << "File Not Found" << endl;
+        return -1;
+    }
+    
     in >> fun_num;
     for (int i = 0; i < fun_num; ++i) {
         in >> num;
@@ -45,6 +54,8 @@ int main(int argc, char* argv[])
         if (v[i].first != 0)
             out << v[i].first << " " << v[i].second << endl;
     }
+    if (cnt == 0)
+        out << "0 0" << endl;
     in.close();
     out.close();
 
